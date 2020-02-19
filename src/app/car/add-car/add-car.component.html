@@ -1,0 +1,31 @@
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Add Car</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Modelo:</label>
+        <input type="text" formControlName="username" placeholder="modelo" name="username" class="form-control" id="username">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Marca:</label>
+        <input type="text" formControlName="password" placeholder="marca" name="password" class="form-control" id="password">
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">Ano:</label>
+        <input formControlName="firstName" placeholder="ano" name="firstName" class="form-control" id="firstName">
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Preço:</label>
+        <input formControlName="lastName" placeholder="preço" name="lastName" class="form-control" id="lastName">
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Descrição:</label>
+        <input formControlName="age" placeholder="descrição" name="age" class="form-control" id="age">
+      </div>
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>

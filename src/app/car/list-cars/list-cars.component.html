@@ -1,0 +1,26 @@
+<div class="col-md-6 user-container">
+    <h2 style="margin: auto"> Catalogo de Carros </h2>
+    <button class="btn btn-success" style="width:100px; margin: 10px;" (click)="addUser()"> Create </button>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Ano</th>
+        <th>Preço</th>
+        <th>Descrição</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.vehicle }}</td>
+        <td>{{ user.brand }}</td>
+        <td>{{ user.year }}</td>
+        <td>{{ user.price }}</td>
+        <td>{{ user.description }}</td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)" style="margin-bottom: 10px;"> Delete</button>
+          <button class="btn btn-primary" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+      </tr>
+      </tbody>
+    </table>
+</div>
