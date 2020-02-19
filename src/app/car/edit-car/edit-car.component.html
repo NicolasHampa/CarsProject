@@ -1,32 +1,32 @@
 <div class="col-md-6 user-container">
     <h2 class="text-center">Edit Car</h2>
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <div class="hidden">
+      <!-- <div class="hidden">
         <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
-      </div>
+      </div> -->
       <div class="form-group">
-        <label for="username">Car Name:e</label>
-        <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true">
-      </div>
-  
-      <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+        <label for="vehicle">Modelo:</label>
+        <input type="text" formControlName="vehicle" placeholder="modelo" name="vehicle" class="form-control" id="vehicle" readonly="true">
       </div>
   
       <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+        <label for="brand">Marca:</label>
+        <input formControlName="brand" placeholder="marca" name="brand" class="form-control" id="brand">
       </div>
   
       <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="number" formControlName="age" placeholder="age" name="age" class="form-control" id="age">
+        <label for="lastName">Ano:</label>
+        <input formControlName="year" placeholder="ano" name="year" class="form-control" id="year">
       </div>
   
       <div class="form-group">
-        <label for="salary">Salary:</label>
-        <input type="number" formControlName="salary" placeholder="salary" name="salary" class="form-control" id="salary">
+        <label for="price">Preço:</label>
+        <input type="text" formControlName="price" placeholder="preço" name="price" class="form-control" id="price">
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Descrição:</label>
+        <input type="text" formControlName="description" placeholder="descrição" name="description" class="form-control" id="description">
       </div>
   
       <button class="btn btn-success">Update</button>

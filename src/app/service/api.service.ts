@@ -10,22 +10,22 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:3333/car/';
+  baseUrl = 'http://localhost:3333/car/';
 
-  login(loginPayload) : Observable<ApiResponse> {
+  login(loginPayload): Observable<ApiResponse> {
     return this.http.post<ApiResponse>('http://localhost:3333/' + 'token/generate-token', loginPayload);
   }
 
-  getUsers() : Observable<ApiResponse> {
+  getUsers(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.baseUrl);
-  }
-
-  getUserById(id: number): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
   createUser(user: Car): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(this.baseUrl, user);
+  }
+
+  getUserById(id: string): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.baseUrl + id);
   }
 
   updateUser(user: Car): Observable<ApiResponse> {

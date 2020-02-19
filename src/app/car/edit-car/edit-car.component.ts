@@ -1,9 +1,9 @@
 import { Component, OnInit , Inject} from '@angular/core';
-import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {first} from "rxjs/operators";
-import {Car} from "../../model/car.model";
-import {ApiService} from "../../service/api.service";
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
+import {Car} from '../../model/car.model';
+import {ApiService} from '../../service/api.service';
 
 @Component({
   selector: 'app-edit-car',
@@ -14,26 +14,28 @@ export class EditCarComponent implements OnInit {
 
   user: Car;
   editForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router: Router, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem("editUserId");
-    if(!userId) {
-      alert("Invalid action.")
-      this.router.navigate(['list-user']);
+    const userId = window.localStorage.getItem('editCarId');
+    if (!userId) {
+      alert('Invalid action.')
+      this.router.navigate(['list-cars']);
       return;
     }
     this.editForm = this.formBuilder.group({
-      id: [''],
-      username: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      age: ['', Validators.required],
-      salary: ['', Validators.required]
+      _id: [''],
+      vehicle: ['', Validators.required],
+      brand: ['', Validators.required],
+      year: ['', Validators.required],
+      price: ['', Validators.required],
+      description: ['', Validators.required],
+      __v: ['']
     });
-    this.apiService.getUserById(+userId)
+    console.log(userId);
+    this.apiService.getUserById(userId)
       .subscribe( data => {
-        this.editForm.setValue(data.result);
+        this.editForm.setValue(data);
       });
   }
 
@@ -42,10 +44,10 @@ export class EditCarComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if(data.status === 200) {
-            alert('User updated successfully.');
-            this.router.navigate(['list-user']);
-          }else {
+          if (data.status === 200) {
+            alert('Car updated successfully.');
+            this.router.navigate(['list-cars']);
+          } else {
             alert(data.message);
           }
         },
