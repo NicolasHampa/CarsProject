@@ -19,7 +19,7 @@ export class EditCarComponent implements OnInit {
   ngOnInit() {
     const userId = window.localStorage.getItem('editCarId');
     if (!userId) {
-      alert('Invalid action.')
+      alert('Invalid action.');
       this.router.navigate(['list-cars']);
       return;
     }
